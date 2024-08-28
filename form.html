@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Forms</title>
+</head>
+<body>
+    <form onsubmit="submitdata(event)">
+        <input id="nameid" type="text" name="username" value="jegini-lokesh"/>
+        <input id="passwordid" type="password" name="password" value="jegini549200@"/>
+        <input id="emailid" type="email" name="email" value="jeginilokes@gmail.com"/>
+        <input id="colorid" type="color" name="color" />
+        <input id="fileid" type="file" name="file" >
+       <button onclick="collectformdata(event)">click to collect the form data</button>
+    </form>
+</body>
+<script>
+let arraydata = [];
+const collectformdata = (event) => {
+    let details = {};
+    event.preventDefault();
+
+    // Collecting form data into the details object
+    details[document.getElementById("nameid").name] = document.getElementById("nameid").value;
+    details[document.getElementById("passwordid").name] = document.getElementById("passwordid").value;
+    details[document.getElementById("emailid").name] = document.getElementById("emailid").value;
+    details[document.getElementById("colorid").name] = document.getElementById("colorid").value;
+    details[document.getElementById("fileid").name] = document.getElementById("fileid").value;
+
+    // Logging the collected data
+    console.log(details);
+
+    // Adding the details object to the arraydata array
+    arraydata.push(details);
+
+    // Logging the array containing all the form data objects
+    console.log(arraydata);
+};
+ 
+</script>
+</html>
